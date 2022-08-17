@@ -13,16 +13,51 @@ public class Main {
      Curso curso2 = new Curso();
      curso2.setTitulo("curso js");
      curso2.setDescricao("descrição curso js");
-     curso2.setCargaHoraria(8);
+     curso2.setCargaHoraria(4);
+
+
 
      Mentoria mentoria = new Mentoria();
      mentoria.setTitulo("mentoria java");
      mentoria.setDescricao("descrição mentoria java");
      mentoria.setData(LocalDate.now());
 
-     System.out.println(curso1);
+    /* System.out.println(curso1);
      System.out.println(curso2);
-     System.out.println(mentoria);
+     System.out.println(mentoria);*/
+
+     Bootcamp bootcamp = new Bootcamp();
+     bootcamp.setNome("Bootcamp Java Developer");
+     bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+     bootcamp.getConteudos().add(curso1);
+     bootcamp.getConteudos().add(curso2);
+     bootcamp.getConteudos().add(mentoria);
+
+     Dev devCarlos = new Dev();
+     devCarlos.setNome("Carlos");
+     devCarlos.inscreverBootcamp(bootcamp);
+     System.out.println("Conteudos Inscritos Carlos" + devCarlos.getConteudosInscritos());
+     devCarlos.progredir();
+     devCarlos.progredir();
+     System.out.println("-");
+     System.out.println("Conteudos Inscritos Carlos" + devCarlos.getConteudosInscritos());
+     System.out.println("Conteudos Concluídos Carlos" + devCarlos.getConteudosConluidos());
+     System.out.println("XP:" + devCarlos.calcularTotalXp());
+     System.out.println("-------");
+
+
+     Dev devMozart = new Dev();
+     devMozart.setNome("Mozart");
+     devMozart.inscreverBootcamp(bootcamp);
+     System.out.println("Conteudos Inscritos Mozart" + devMozart.getConteudosInscritos());
+     devMozart.progredir();
+     devMozart.progredir();
+     devMozart.progredir();
+     System.out.println("-");
+     System.out.println("Conteudos Inscritos Mozart" + devMozart.getConteudosInscritos());
+     System.out.println("Conteudos Concluídos Mozart" + devMozart.getConteudosConluidos());
+     System.out.println("XP:" + devMozart.calcularTotalXp());
+
     }
 
 }
